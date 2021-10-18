@@ -65,9 +65,9 @@ Warehouse List
                             <thead>
                                 <tr>
                                     <th width="200px">Name</th>
-                                    <th width="200px">Serial Number</th>
-                                    <th width="200px">Part</th>
-                                    <th width="200px">Status</th>
+                                    <th width="200px">Number</th>
+                                    <th width="200px">Email</th>
+                                    <th width="200px">Manager</th>
                                     <th width="200px">Action</th>
                                 </tr>
                             </thead>

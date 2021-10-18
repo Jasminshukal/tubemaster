@@ -38,7 +38,7 @@
     <div class="page-content-wrapper py-3">
       <div class="container">
         <!-- Element Heading -->
-        
+
       </div>
       <div class="container">
         <div class="card">
@@ -53,7 +53,7 @@
                 </ul>
             </div>
             @endif
-            
+
             <form action="{{ route('projects.update',$project->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -74,7 +74,7 @@
                         @foreach ($citys as $city)
                         <option @if($city->id==$project->city_id) selected @endif value="{{$city->id}}">{{$city->name}}</option>
                         @endforeach
-    
+
                     </select>
                 </div>
 
@@ -85,33 +85,41 @@
                         @foreach ($clients as $client)
                         <option @if($client->id==$project->client_id) selected @endif value="{{$client->id}}">{{$client->name}}</option>
                         @endforeach
-    
+
                     </select>
                 </div>
 
                 <div class="form-group">
                   <label for="my-input" class="mb-2">Equipment</label>
-                  <select name="equipment_id" id="" class="form-control">
+                  <select name="equipment_id" id="" class="form-control js-example-basic-multiple"  multiple="multiple">
                       <option value="">select equipment</option>
                       @foreach ($equipment as $equipment)
                       <option @if($equipment->id==$project->equipment_id) selected @endif  value="{{$equipment->id}}">{{$equipment->name}}</option>
                       @endforeach
-  
+
                   </select>
-              </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="my-input" class="mb-2">Parts</label>
+                    <select name="equipment_id" id="" class="form-control js-example-basic-multiple"  multiple="multiple">
+                        <option value="">select equipment</option>
+                        <option value=""></option>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label for="my-input" class="mb-2">Phone</label>
                     <input id="my-input" value="{{$project->contactphone}}" class="form-control" type="text" name="contactphone">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="my-input" class="mb-2">Email</label>
                     <input id="my-input" value="{{$project->contactemail}}" class="form-control" type="email" name="contactemail">
                 </div>
 
-             
-            
+
+
             <div class="form-group">
                 <label for="my-input" class="mb-2">Status</label>
                 <select name="status" id="" class="form-control">
@@ -127,6 +135,13 @@
         </div>
       </div>
     </div>
- @endsection   
+ @endsection
+
+ @section('js')
+ <script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
+ @endsection
     <!-- Footer Nav -->
-    

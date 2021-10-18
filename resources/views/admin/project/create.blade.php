@@ -138,7 +138,6 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            alert('project create');
             $('.js-example-basic-multiple').select2();
         });
     </script>
