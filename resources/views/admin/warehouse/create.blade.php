@@ -1,8 +1,9 @@
 @extends('admin.layout')
 
-@section('title', 'Equipment List')
+@section('title', 'Add New Project')
 
 @section('content')
+
     <!-- Header Area -->
     <div class="header-area" id="headerArea">
         <div class="container">
@@ -18,7 +19,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Equipments</h6>
+                    <h6 class="mb-0">Warehouse</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -47,64 +48,65 @@
     <div class="page-content-wrapper py-3">
         <div class="container">
             <!-- Element Heading -->
-            <div class="element-heading">
-                <a href='{{ route('equipments.create') }}'>Add New</a>
-            </div>
-            @if (session()->has('success'))
-                <div class="alert alert-success">{{ session()->get('success') }}</div>
-            @endif
+
         </div>
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="w-100" id="dataTable">
-                            <thead>
-                                <tr>
-                                    <th width="200px">SR NO</th>
-                                    <th width="200px">Name</th>
-                                    <th width="200px">Warehouses</th>
-                                    <th width="200px">Status</th>
-                                    <th width="200px">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($equipments as $equipment)
-                                    <tr>
-                                        <td>{{ $equipment->serialnumber }}</td>
-                                        <td>{{ $equipment->name }}</td>
-                                        <td>{{ $equipment->location->location ?? '' }}</td>
-                                        <td>
-                                            @if ($equipment->status == 1)
-                                                Ready For Project
-                                            @elseif ($equipment->status == 2)
-                                                Maintenance
-                                            @else
-                                                Scrape
-                                            @endif
-                                        </td>
-                                        <td style="justify-content: space-around; display:flex;">
-                                            <a class="btn btn-sm btn-info mb-1"
-                                                href="{{ route('equipments.show', $equipment->id) }}"><i
-                                                    class="fa fa-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary mb-1"
-                                                href="{{ route('equipments.edit', $equipment->id) }}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <form action="{{ route('equipments.destroy', $equipment->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger mb-1"><i
-                                                        class="fa fa-trash"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
                                 @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form method="POST" action="{{ route('Warehouse.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="my-input" class="mb-2">Location</label>
+                            <input id="my-input" class="form-control" type="text" name="location">
+                        </div>
 
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="form-group">
+                            <label for="address" class="mb-2">Address</label>
+                            <input id="address" class="form-control" type="text" name="address">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="my-input" class="mb-2">Phone</label>
+                            <input id="my-input" class="form-control" type="number" name="phone_number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="my-input" class="mb-2">Email</label>
+                            <input id="my-input" class="form-control" type="email" name="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="m-name" class="mb-2">Manager Name</label>
+                            <input id="m-name" class="form-control" type="text" name="manager_name">
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+
+@endsection
+<!-- Footer Nav -->

@@ -1,9 +1,10 @@
 @extends('admin.layout')
 
-@section('title', 'Equipment List')
+@section('title')
+Warehouse List
+@endsection
 
 @section('content')
-    <!-- Header Area -->
     <div class="header-area" id="headerArea">
         <div class="container">
             <!-- Header Content -->
@@ -18,7 +19,7 @@
                         </svg></a></div>
                 <!-- Page Title -->
                 <div class="page-heading">
-                    <h6 class="mb-0">Equipments</h6>
+                    <h6 class="mb-0">Warehouse</h6>
                 </div>
                 <!-- Settings -->
                 <div class="setting-wrapper">
@@ -48,9 +49,11 @@
         <div class="container">
             <!-- Element Heading -->
             <div class="element-heading">
-                <a href='{{ route('equipments.create') }}'>Add New</a>
+                <a href='{{ route('Warehouse.create') }}' class="btn btn-info">Add New Warehouse</a>
             </div>
+
             @if (session()->has('success'))
+                <br>
                 <div class="alert alert-success">{{ session()->get('success') }}</div>
             @endif
         </div>
@@ -61,41 +64,36 @@
                         <table class="w-100" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th width="200px">SR NO</th>
                                     <th width="200px">Name</th>
-                                    <th width="200px">Warehouses</th>
+                                    <th width="200px">Serial Number</th>
+                                    <th width="200px">Part</th>
                                     <th width="200px">Status</th>
                                     <th width="200px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($equipments as $equipment)
+                                @foreach ($warehouse as $equipment)
                                     <tr>
-                                        <td>{{ $equipment->serialnumber }}</td>
-                                        <td>{{ $equipment->name }}</td>
-                                        <td>{{ $equipment->location->location ?? '' }}</td>
+                                        <td>{{ $equipment->location }}</td>
+                                        <td>{{ $equipment->phone_number }}</td>
+                                        <td>{{ $equipment->email }}</td>
+                                        <td>{{ $equipment->manager_name }}</td>
                                         <td>
-                                            @if ($equipment->status == 1)
-                                                Ready For Project
-                                            @elseif ($equipment->status == 2)
-                                                Maintenance
-                                            @else
-                                                Scrape
-                                            @endif
-                                        </td>
-                                        <td style="justify-content: space-around; display:flex;">
-                                            <a class="btn btn-sm btn-info mb-1"
-                                                href="{{ route('equipments.show', $equipment->id) }}"><i
-                                                    class="fa fa-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary mb-1"
-                                                href="{{ route('equipments.edit', $equipment->id) }}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <form action="{{ route('equipments.destroy', $equipment->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger mb-1"><i
-                                                        class="fa fa-trash"></i></button>
-                                            </form>
+                                            <div>
+                                                <a class="btn btn-sm btn-info mb-1"
+                                                    href="{{ route('Warehouse.show', $equipment->id) }}"><i
+                                                        class="fa fa-eye"></i></a>
+                                                <a class="btn btn-sm btn-primary mb-1"
+                                                    href="{{ route('Warehouse.edit', $equipment->id) }}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <form action="{{ route('Warehouse.destroy', $equipment->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm btn-danger mb-1"><i
+                                                            class="fa fa-trash"></i></button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

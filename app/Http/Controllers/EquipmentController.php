@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Client;
 use App\Models\Equipment;
 use App\Models\Project;
+use App\Models\Warehouse;
 use Illuminate\Http\Request;
 
 class EquipmentController extends Controller
@@ -17,7 +18,7 @@ class EquipmentController extends Controller
      */
     public function index()
     {
-        $equipments=Equipment::where('status','=',1)->orderBy('id','desc')->get();
+        $equipments=Equipment::orderBy('id','desc')->get();
         return view('admin.equipment.index',compact('equipments'));
     }
 
@@ -31,7 +32,8 @@ class EquipmentController extends Controller
         $citys=City::orderBy('name','asc')->get();
         $clients=Client::where('status','=',1)->orderBy('name','asc')->get();
         $projects=Project::where('status','=',1)->orderBy('title','asc')->get();
-        return view('admin.equipment.create',compact('citys','clients','projects'));
+        $warehouse=Warehouse::all();
+        return view('admin.equipment.create',compact('citys','clients','projects','warehouse'));
     }
 
     /**
@@ -49,9 +51,9 @@ class EquipmentController extends Controller
             'part'=>'required',
         ]);
 
-        $data = $request->all();
-        $data['part']=json_encode($request->part);
-        Equipment::create($data);
+        // $data = $request->all();
+        $equipment=Equipment::create($data);
+        // dd($equipment);
         return redirect()->route('equipments.index')->with('success','Equipment Create Successfully');
     }
 
@@ -82,7 +84,8 @@ class EquipmentController extends Controller
         $citys=City::orderBy('name','asc')->get();
         $clients=Client::orderBy('name','asc')->get();
         $projects=Project::orderBy('title','asc')->get();
-        return view('admin.equipment.edit',compact('citys','clients','projects','equipment'));
+        $warehouse=Warehouse::all();
+        return view('admin.equipment.edit',compact('citys','clients','projects','equipment','warehouse'));
     }
 
     /**
@@ -100,12 +103,10 @@ class EquipmentController extends Controller
             'status' => 'required',
             'part' => 'required',
         ]);
-        
+
         $equipment=Equipment::find($id);
 
         $data = $request->all();
-        $data['part']=json_encode($request->part);
-    
         $equipment->update($data);
 
         return redirect()->route('equipments.index')->with('success','Equipment update Successfully');
@@ -123,6 +124,6 @@ class EquipmentController extends Controller
         $equipment->delete();
 
         return redirect()->route('equipments.index')->with('success','Equipment Delete Successfully');
-   
+
     }
 }

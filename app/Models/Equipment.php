@@ -12,7 +12,7 @@ class Equipment extends Model
     use SoftDeletes;
 
     protected $fillable=['name','serialnumber','status','part'];
-    
+
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -26,5 +26,10 @@ class Equipment extends Model
     public function project()
     {
         return $this->belongsTo(Project::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Warehouse::class,'part','id');
     }
 }

@@ -74,7 +74,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        
+
         $client=Client::find($id);
         $citys=City::orderBy('name','asc')->get();
         return view('admin.client.edit',compact('citys','client'));
@@ -98,9 +98,9 @@ class ClientController extends Controller
             'city_id' => 'required',
             'status' => 'required',
         ]);
-        
+
         $clients=Client::find($id);
-    
+
         $clients->update($request->all());
         return redirect()->route('clients.index')->with('success','Client update Successfully');
     }

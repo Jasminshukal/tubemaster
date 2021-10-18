@@ -56,7 +56,7 @@
     <div class="page-content-wrapper py-3">
       <div class="container">
         <!-- Element Heading -->
-        
+
       </div>
       <div class="container">
         <div class="card">
@@ -71,8 +71,8 @@
             </div>
             @endif
 
-          
-            <form method="POST" action="{{route('equipments.store')}}">  
+
+            <form method="POST" action="{{route('equipments.store')}}">
                 @csrf
                <div class="form-group">
                    <label for="my-input" class="mb-2">Name</label>
@@ -84,30 +84,31 @@
                 <input id="my-input" class="form-control" type="text" name="serialnumber">
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="my-input" class="mb-2">Part</label>
                   <input type="text" data-role="tagsinput" name="part" class="form-control">
                   <label>comma seprated part enter ex. xyz,abc</label>
-              </div>
+              </div> --}}
 
-              
-                {{-- <div class="form-group">
-                    <label for="my-input" class="mb-2">City</label>
-                    <select name="city_id" id="" class="form-control">
-                        <option value="">select city</option>
-                        @foreach ($citys as $city)
-                        <option value="{{$city->id}}">{{$city->name}}</option>
+
+                <div class="form-group">
+                    <label for="my-input" class="mb-2">Warehouse</label>
+                    <select name="part" id="" class="form-control">
+                        <option value="">Select Warehouse</option>
+                        @foreach ($warehouse as $city)
+                        <option value="{{$city->id}}">{{$city->location}}</option>
                         @endforeach
-    
+
                     </select>
                 </div>
-  --}}
-            
+
+
             <div class="form-group">
                 <label for="my-input" class="mb-2">Status</label>
                 <select name="status" id="" class="form-control">
-                    <option value="1">Active</option>
-                    <option value="0">In Active</option>
+                    <option value="1">Ready For Project</option>
+                    <option value="2">Maintenance</option>
+                    <option value="3">Scrape</option>
                 </select>
             </div>
             <div class="text-center">
@@ -119,7 +120,7 @@
       </div>
     </div>
 
-    
- @endsection   
+
+ @endsection
     <!-- Footer Nav -->
-    
+

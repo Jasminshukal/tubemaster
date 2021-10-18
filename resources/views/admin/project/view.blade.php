@@ -74,46 +74,41 @@
                                     <form action="{{ route('projects.update', $project->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Title</label>
-                                            : {{ $project->title }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Address</label>
-                                            : {{ $project->address }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">City</label>
-                                            : {{ $project->city->name ?? '' }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Client</label>
-                                            : {{ $project->client->name ?? '' }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Phone</label>
-                                            : {{ $project->contactphone }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Email</label>
-                                            {{ $project->contactemail }}
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="my-input" class="mb-2">Status</label>
-                                            @if ($project->status == 1)
-                                                Active
-                                            @endif
-                                            @if ($project->status == 0)
-                                                Inactive
-                                            @endif
-                                        </div>
-
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>{{ $project->title }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>City</td>
+                                                    <td>{{ $project->city->name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Client</td>
+                                                    <td>{{ $project->client->name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td>{{ $project->contactphone }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>{{ $project->contactemail }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status</td>
+                                                    <td>
+                                                    @if ($project->status == 1)
+                                                        Active
+                                                    @endif
+                                                    @if ($project->status == 0)
+                                                        Inactive
+                                                    @endif
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="nav-profile" role="tabpanel"

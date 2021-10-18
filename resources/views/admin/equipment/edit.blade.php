@@ -38,7 +38,7 @@
     <div class="page-content-wrapper py-3">
       <div class="container">
         <!-- Element Heading -->
-        
+
       </div>
       <div class="container">
         <div class="card">
@@ -64,11 +64,16 @@
                 <label for="my-input" class="mb-2">Serial Number</label>
                 <input id="my-input" value="{{$equipment->serialnumber}}" class="form-control" type="text" name="serialnumber">
               </div>
-              
+
               <div class="form-group">
-                <label for="my-input" class="mb-2">Part</label>
-                <input type="text" value="{{json_decode($equipment->part) ?? ''}}" data-role="tagsinput" name="part" class="form-control">
-                <label>comma seprated part enter ex. xyz,abc</label>
+                <label for="my-input" class="mb-2">Warehouse</label>
+                <select name="part" id="" class="form-control">
+                    <option value="">Select Warehouse</option>
+                    @foreach ($warehouse as $city)
+                    <option value="{{$city->id}}" @if($equipment->part==$city->id) selected @endif >{{$city->location}}</option>
+                    @endforeach
+
+                </select>
             </div>
 
             <div class="form-group">
@@ -86,6 +91,6 @@
         </div>
       </div>
     </div>
- @endsection   
+ @endsection
     <!-- Footer Nav -->
-    
+

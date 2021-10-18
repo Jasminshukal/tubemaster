@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -32,3 +33,5 @@ Route::resource('projects', ProjectController::class);
 Route::post('projects/save/comments', [ProjectController::class,'save_comment'])->name('projects.save.comments');
 
 Route::resource('equipments', EquipmentController::class);
+
+Route::resource('Warehouse', WarehouseController::class);
