@@ -107,6 +107,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="my-input" class="mb-2">Parts</label>
+                            <select id="" class="form-control js-example-basic-multiple"  multiple="multiple">
+                                <option value="">select Parts</option>
+                                <option value="1">J&D Speaker Cabinet Handle</option>
+                                <option value="1">Car Speaker Bass Tube Encloser In </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="my-input" class="mb-2">Phone</label>
                             <input id="my-input" class="form-control" type="text" name="contactphone">
                         </div>

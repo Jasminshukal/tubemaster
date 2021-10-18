@@ -102,9 +102,10 @@
 
                 <div class="form-group">
                     <label for="my-input" class="mb-2">Parts</label>
-                    <select name="equipment_id" id="" class="form-control js-example-basic-multiple"  multiple="multiple">
-                        <option value="">select equipment</option>
-                        <option value=""></option>
+                    <select id="" class="form-control js-example-basic-multiple"  multiple="multiple">
+                        <option value="">select Parts</option>
+                        <option value="1">J&D Speaker Cabinet Handle</option>
+                        <option value="1">Car Speaker Bass Tube Encloser In </option>
                     </select>
                 </div>
 
