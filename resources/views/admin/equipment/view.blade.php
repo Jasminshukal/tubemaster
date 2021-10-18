@@ -38,12 +38,12 @@
     <div class="page-content-wrapper py-3">
       <div class="container">
         <!-- Element Heading -->
-        
+
       </div>
       <div class="container">
         <div class="card">
           <div class="card-body">
-            <form method="POST" action="{{route('equipments.store')}}">  
+            <form method="POST" action="{{route('equipments.store')}}">
                 @csrf
                <div class="form-group">
                    <label for="my-input" class="mb-2">Name</label>
@@ -57,8 +57,8 @@
 
                 <div class="form-group">
                     <label for="my-input" class="mb-2">City</label>
-                    : {{$equipment->city->name}}
-                   
+                    : {{$equipment->city->name ?? ""}}
+
                 </div>
 
                 <div class="form-group">
@@ -69,10 +69,10 @@
                 <div class="form-group">
                     <label for="my-input" class="mb-2">Client</label>
                     : {{$equipment->client->name ?? ''}}
-                    
+
                 </div>
 
-            
+
             <div class="form-group">
                 @if($equipment->status==1)
                 Active
@@ -86,6 +86,6 @@
         </div>
       </div>
     </div>
- @endsection   
+ @endsection
     <!-- Footer Nav -->
-    
+

@@ -85,7 +85,7 @@
                                         <td style="justify-content: space-around; display:flex;">
                                             <a class="btn btn-sm btn-info mb-1"
                                                 href="{{ route('equipments.show', $equipment->id) }}"><i
-                                                    class="fa fa-edit"></i></a>
+                                                    class="fa fa-eye"></i></a>
                                             <a class="btn btn-sm btn-primary mb-1"
                                                 href="{{ route('equipments.edit', $equipment->id) }}"><i
                                                     class="fa fa-edit"></i></a>

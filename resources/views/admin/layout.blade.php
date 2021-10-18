@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{asset('manifest.json')}}">
+    <link rel="stylesheet" href="{{ asset('plugin/select2/css/select2.css') }}">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
@@ -225,6 +226,8 @@
     <!-- PWA -->
     <script src="{{asset('js/pwa.js')}}"></script>
 
+    <script src="{{ asset('plugin/select2/js/select2.js') }}"></script>
+
     <script type="text/javascript">
 			$(function() {
 				// $('#form-tags-1').tagsInput();
@@ -268,6 +271,7 @@
 				// 	'delimiter': [',', ';']
 				// });
 			});
-		</script>
+            </script>
+            @yield('js')
   </body>
 </html>

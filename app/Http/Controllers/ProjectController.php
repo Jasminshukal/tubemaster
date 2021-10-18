@@ -18,7 +18,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects=Project::with(['city','client','equipment'])->orderBy('id','desc')->get();
-        
+
         return view('admin.project.index',compact('projects'));
     }
 
@@ -43,6 +43,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'title' => 'required',
             'address' => 'required',
@@ -55,7 +56,16 @@ class ProjectController extends Controller
         ]);
 
         $data = $request->all();
-        Project::create($data);
+        $project=Project::create($data);
+        $equipments=array();
+        foreach($request->equipment_id as $equipment)
+        {
+            $project_equipments=array();
+            $project_equipments['equipments_id']=$equipment;
+            $project_equipments['status']="active";
+            array_push($equipments,$project_equipments);
+        }
+        $project->project_equipment()->createMany($equipments);
         return redirect()->route('projects.index')->with('success','Project Create Successfully');
     }
 
@@ -67,8 +77,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project=Project::with(['city','client'])->orderBy('id','desc')->first();
-        
+        $project=Project::with(['city','client','project_equipment'])->orderBy('id','desc')->first();
         return view('admin.project.view',compact('project'));
     }
 
@@ -106,9 +115,9 @@ class ProjectController extends Controller
             'status' => 'required',
             'equipment_id' => 'required',
         ]);
-        
+
         $projects=Project::find($id);
-    
+
         $projects->update($request->all());
 
         return redirect()->route('projects.index')->with('success','Project update Successfully');

@@ -10,9 +10,9 @@ class Project extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
     protected $fillable=[
-        'title','client_id','address','city_id','contactphone','contactemail','status','equipment_id'
+        'title','client_id','address','city_id','contactphone','contactemail','status'
     ];
 
     public function city()
@@ -30,5 +30,9 @@ class Project extends Model
         return $this->belongsTo(Equipment::class);
     }
 
-    
+    public function project_equipment(){
+        return $this->hasMany(ProjectEquipment::class, "projects_id", "id");
+    }
+
+
 }

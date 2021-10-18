@@ -29,5 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('clients', ClientController::class);
 
 Route::resource('projects', ProjectController::class);
+Route::post('projects/save/comments', [ProjectController::class,'save_comment'])->name('projects.save.comments');
 
 Route::resource('equipments', EquipmentController::class);
