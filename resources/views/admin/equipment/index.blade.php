@@ -82,20 +82,18 @@
                                                 In Active
                                             @endif
                                         </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-info"
+                                        <td style="justify-content: space-around; display:flex;">
+                                            <a class="btn btn-sm btn-info mb-1"
                                                 href="{{ route('equipments.show', $equipment->id) }}"><i
-                                                    class="fa fa-edit"></i>View</a>
-                                            |
-                                            <a class="btn btn-sm btn-primary"
+                                                    class="fa fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-primary mb-1"
                                                 href="{{ route('equipments.edit', $equipment->id) }}"><i
-                                                    class="fa fa-edit"></i>Edit</a>
-                                            |
+                                                    class="fa fa-edit"></i></a>
                                             <form action="{{ route('equipments.destroy', $equipment->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-sm btn-danger"><i
-                                                        class="fa fa-delete"></i>Delete</button>
+                                                <button class="btn btn-sm btn-danger mb-1"><i
+                                                        class="fa fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

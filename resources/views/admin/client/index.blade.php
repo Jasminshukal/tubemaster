@@ -50,46 +50,32 @@
               <table class="w-100" id="dataTable">
                   <thead>
                     <tr>
-                      <th>Name</th>
                       <th>Company Name</th>
                       <th>Email</th>
                       <th>Phone</th>
-                      <th>Address</th>
                       <th>City</th>
-                      <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     @foreach($clients as $client)
                     <tr>
-                      <td>{{$client->name}}</td>
                       <td>{{$client->companyname}}</td>
                       <td>{{$client->email}}</td>
                       <td>{{$client->phone}}</td>
-                      <td>{{$client->address}}</td>
                       <td>{{$client->city->name}}</td>
-                      <td>
-                        @if($client->status==1)
-                        Active
-                        @else
-                        In Active
-                        @endif
-                      </td>
-                      <td>
-                        <a class="btn btn-sm btn-info" href="{{route('clients.show',$client->id)}}"><i class="fa fa-edit"></i>View</a>
-                        |
-                        <a class="btn btn-sm btn-primary" href="{{route('clients.edit',$client->id)}}"><i class="fa fa-edit"></i>Edit</a>
-                        |
+                      <td style="justify-content: space-around; display:flex;">
+                        <a class="btn btn-sm btn-info mb-1" href="{{route('clients.show',$client->id)}}"><i class="fa fa-eye"></i></a>
+                        <a class="btn btn-sm btn-primary mb-1" href="{{route('clients.edit',$client->id)}}"><i class="fa fa-edit"></i></a>
                         <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
                           @csrf
                           @method('DELETE')
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-delete"></i>Delete</button>
+                        <button class="btn btn-sm btn-danger mb-1"><i class="fas fa-trash"></i></button>
                         </form>
                       </td>
                     </tr>
                     @endforeach
-                    
+
                   </tbody>
               </table>
             </div>
@@ -97,4 +83,4 @@
         </div>
       </div>
     </div>
- @endsection   
+ @endsection

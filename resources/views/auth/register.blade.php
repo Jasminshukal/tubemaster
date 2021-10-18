@@ -6,15 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
-
                 <div class="internet-connection-status" id="internetStatus"></div>
     <!-- Back Button -->
     <div class="login-back-button"><a href="{{route('login')}}">
-        <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
-        </svg></a></div>
+        </div>
     <!-- Login Wrapper Area -->
     <div class="login-wrapper d-flex align-items-center justify-content-center">
       <div class="custom-container">
@@ -28,7 +24,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -42,7 +38,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -56,7 +52,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
 
                                 @error('email')
@@ -70,7 +66,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -84,22 +80,22 @@
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <select id="status" class="form-control" name="status" required autocomplete="status">
                                         <option value='1'>Active</option>
                                         <option value='0'>In Active</option>
-                                        
+
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -108,12 +104,17 @@
                                 </button>
                             </div>
                         </div>
+                        <br/>
+                        <div class="login-meta-data text-center">
+                            <p class="mb-0">Do you have an account? <a class="stretched-link" href="{{ route('login') }}">Login Now</a>
+                          </p>
+                          </div>
                     </form>
-        </div>      
+        </div>
         </div>
         </div>
 </div>
 </div>
-                    
-              
+
+
 @endsection

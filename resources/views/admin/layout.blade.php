@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <!-- Mirrored from designing-world.com/affan-1.3.0/element-form-input.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Oct 2021 11:53:06 GMT -->
 <head>
     <meta charset="utf-8">
@@ -24,6 +24,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('tubmasterlogo.ico')}}">
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/fontawesome/all.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{asset('css/tiny-slider.css')}}">
     <link rel="stylesheet" href="{{asset('css/baguetteBox.min.css')}}">
@@ -40,7 +41,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js" integrity="sha512-VvWznBcyBJK71YKEKDMpZ0pCVxjNuKwApp4zLF3ul+CiflQi6aIJR+aZCP/qWsoFBA28avL5T5HA+RE+zrGQYg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-angular.min.js" integrity="sha512-KT0oYlhnDf0XQfjuCS/QIw4sjTHdkefv8rOJY5HHdNEZ6AmOh1DW/ZdSqpipe+2AEXym5D0khNu95Mtmw9VNKg==" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-angular.min.js" integrity="sha512-KT0oYlhnDf0XQfjuCS/QIw4sjTHdkefv8rOJY5HHdNEZ6AmOh1DW/ZdSqpipe+2AEXym5D0khNu95Mtmw9VNKg==" crossorigin="anonymous"></script> --}}
     <style type="text/css">
         .bootstrap-tagsinput{
             width: 100%;
@@ -69,7 +70,7 @@
       }
       .label-info{
           background-color: #17a2b8;
-  
+
       }
       .label {
           display: inline-block;
@@ -177,7 +178,7 @@
             $pagename=\Request::route()->getName();
         @endphp
         <div class="footer-nav position-relative">
-               
+
           <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
             <li class="{{ ($pagename == 'home') ? 'active' : '' }}"><a href="{{route('home')}}">
                 <svg class="bi bi-house" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -203,7 +204,7 @@
                     <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
                     <path d="M2.165 15.803l.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"></path>
                   </svg><span>Logout</span></a></li>
-          
+
           </ul>
         </div>
       </div>
@@ -214,7 +215,7 @@
     <script src="{{asset('js/internet-status.js')}}"></script>
     <script src="{{asset('js/tiny-slider.js')}}"></script>
     <script src="{{asset('js/baguetteBox.min.js')}}"></script>
-    <script src="{{asset('js/countdown.js')}}"></script>
+
     <script src="{{asset('js/rangeslider.min.js')}}"></script>
     <script src="{{asset('js/vanilla-dataTables.min.js')}}"></script>
     <script src="{{asset('js/index.js')}}"></script>
@@ -226,49 +227,47 @@
 
     <script type="text/javascript">
 			$(function() {
-				$('#form-tags-1').tagsInput();
-				
-				$('#form-tags-2').tagsInput({
-					'onAddTag': function(input, value) {
-						console.log('tag added', input, value);
-					},
-					'onRemoveTag': function(input, value) {
-						console.log('tag removed', input, value);
-					},
-					'onChange': function(input, value) {
-						console.log('change triggered', input, value);
-					}
-				});
-				
-				$('#form-tags-3').tagsInput({
-					'unique': true,
-					'minChars': 2,
-					'maxChars': 10,
-					'limit': 5,
-					'validationPattern': new RegExp('^[a-zA-Z]+$')
-				});
-				
-				$('#form-tags-4').tagsInput({
-					'autocomplete': {
-						source: [
-							'apple',
-							'banana',
-							'orange',
-							'pizza'
-						]
-					} 
-				});
-				
-				$('#form-tags-5').tagsInput({
-					'delimiter': ';' 
-				});
-				
-				$('#form-tags-6').tagsInput({
-					'delimiter': [',', ';'] 
-				});
+				// $('#form-tags-1').tagsInput();
+
+				// $('#form-tags-2').tagsInput({
+				// 	'onAddTag': function(input, value) {
+				// 		console.log('tag added', input, value);
+				// 	},
+				// 	'onRemoveTag': function(input, value) {
+				// 		console.log('tag removed', input, value);
+				// 	},
+				// 	'onChange': function(input, value) {
+				// 		console.log('change triggered', input, value);
+				// 	}
+				// });
+
+				// $('#form-tags-3').tagsInput({
+				// 	'unique': true,
+				// 	'minChars': 2,
+				// 	'maxChars': 10,
+				// 	'limit': 5,
+				// 	'validationPattern': new RegExp('^[a-zA-Z]+$')
+				// });
+
+				// $('#form-tags-4').tagsInput({
+				// 	'autocomplete': {
+				// 		source: [
+				// 			'apple',
+				// 			'banana',
+				// 			'orange',
+				// 			'pizza'
+				// 		]
+				// 	}
+				// });
+
+				// $('#form-tags-5').tagsInput({
+				// 	'delimiter': ';'
+				// });
+
+				// $('#form-tags-6').tagsInput({
+				// 	'delimiter': [',', ';']
+				// });
 			});
 		</script>
   </body>
-
-<!-- Mirrored from designing-world.com/affan-1.3.0/element-form-input.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Oct 2021 11:53:06 GMT -->
 </html>

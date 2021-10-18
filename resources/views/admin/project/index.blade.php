@@ -54,12 +54,8 @@
                   <tr>
                     <th>Title</th>
                     <th>Client</th>
-                    <th>Equipment</th>
-                    <th>Address</th>
                     <th>City</th>
-                    <th>Contact Phone</th>
                     <th>Contact Email</th>
-                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -68,40 +64,26 @@
                   <tr>
                     <td>{{$project->title}}</td>
                     <td>{{$project->client->name ?? ''}}</td>
-                    <td>{{$project->equipment->name ?? ''}}</td>
-                    <td>{{$project->address}}</td>
                     <td>{{$project->city->name ?? ''}}</td>
-                    <td>{{$project->contactphone}}</td>
                     <td>{{$project->contactemail}}</td>
-                    <td>
-                      @if($project->status==1)
-                      Active
-                      @else
-                      In Active
-                      @endif   
-                      
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-info" href="{{route('projects.show',$project->id)}}"><i class="fa fa-edit"></i>View</a>
-                      |
-                      <a class="btn btn-sm btn-primary" href="{{route('projects.edit',$project->id)}}"><i class="fa fa-edit"></i>Edit</a>
-                      |
+                    <td style="justify-content: space-around; display:flex;">
+                      <a class="btn btn-sm btn-info mb-1" href="{{route('projects.show',$project->id)}}"><i class="fas fa-eye"></i></a>
+                      <a class="btn btn-sm btn-primary mb-1" href="{{route('projects.edit',$project->id)}}"><i class="fa fa-edit"></i></a>
                       <form action="{{ route('projects.destroy',$project->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-danger"><i class="fa fa-delete"></i>Delete</button>
+                        <button class="btn btn-sm btn-danger mb-1"><i class="fas fa-trash"></i></button>
                       </form>
                     </td>
                   </tr>
                   @endforeach
-                  
+
                 </tbody>
             </table>
             </div>
-            
+
           </div>
         </div>
       </div>
     </div>
- @endsection   
- 
+ @endsection
