@@ -61,11 +61,11 @@
                         <table class="w-100" id="dataTable">
                             <thead>
                                 <tr>
-                                    <th width="100px">Name</th>
-                                    <th width="100px">Serial Number</th>
-                                    <th width="100px">Part</th>
-                                    <th width="100px">Status</th>
-                                    <th width="100px">Action</th>
+                                    <th width="200px">Name</th>
+                                    <th width="200px">Serial Number</th>
+                                    <th width="200px">Part</th>
+                                    <th width="200px">Status</th>
+                                    <th width="200px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
