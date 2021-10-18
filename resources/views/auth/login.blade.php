@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <!-- Mirrored from designing-world.com/affan-1.3.0/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Oct 2021 11:52:58 GMT -->
 <head>
     <meta charset="utf-8">
@@ -17,11 +17,11 @@
     <link rel="preconnect" href="fonts.gstatic.com/index.html">
     <link href="fonts.googleapis.com/css24d2f.css?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="img/icons/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/icon-180x180.png">
+    <link rel="icon" href="{{asset('tubmasterlogo.ico')}}">
+    <link rel="apple-touch-icon" href="{{asset('tubmasterlogo.ico')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('tubmasterlogo.ico')}}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{asset('tubmasterlogo.ico')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('tubmasterlogo.ico')}}">
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">
@@ -77,7 +77,7 @@
         <!-- Login Meta -->
         <div class="login-meta-data text-center">
           <p class="mb-0">Didn't have an account? <a class="stretched-link" href="{{ route('register') }}">Register Now</a>
-          
+
         </p>
         </div>
       </div>
