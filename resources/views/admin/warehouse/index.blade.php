@@ -49,7 +49,7 @@ Warehouse List
         <div class="container">
             <!-- Element Heading -->
             <div class="element-heading">
-                <a href='{{ route('Warehouse.create') }}' class="btn btn-info">Add New Warehouse</a>
+                <a href='{{ route('Warehouse.create') }}' class="btn btn-info mb-2">Add New Warehouse</a>
             </div>
 
             @if (session()->has('success'))

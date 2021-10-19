@@ -51,7 +51,7 @@
         <div class="text-center px-4"><img class="login-intro-img" src="{{asset('tubemasterlogo.jpeg')}}" alt=""></div>
         <!-- Register Form -->
         <div class="register-form mt-4">
-          <h6 class="mb-3 text-center">Log in to continue to Affan.</h6>
+          <h6 class="mb-3 text-center">Log in to continue to.</h6>
           <form action="{{route('login')}}" method="POST">
             @csrf
             <div class="form-group">

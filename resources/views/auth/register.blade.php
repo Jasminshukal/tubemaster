@@ -17,7 +17,7 @@
         <div class="text-center px-4"><img class="login-intro-img" src="{{asset('tubemasterlogo.jpeg')}}" alt=""></div>
         <!-- Register Form -->
         <div class="register-form mt-4">
-          <h6 class="mb-3 text-center">Log in to continue to Affan.</h6>
+          <h6 class="mb-3 text-center">Register in to continue to.</h6>
           <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -97,6 +97,7 @@
                             </div>
                         </div>
 
+                        <hr>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -105,6 +106,7 @@
                             </div>
                         </div>
                         <br/>
+                        <hr>
                         <div class="login-meta-data text-center">
                             <p class="mb-0">Do you have an account? <a class="stretched-link" href="{{ route('login') }}">Login Now</a>
                           </p>
